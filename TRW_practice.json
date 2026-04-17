@@ -1,0 +1,1012 @@
+{
+  "name": "TRW practice",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "login",
+        "authentication": "basicAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -820,
+        20
+      ],
+      "id": "139ed4de-4455-4ab2-aca1-5ad98df58f93",
+      "name": "Webhook",
+      "webhookId": "5f49ceed-4a4e-451e-8164-0ad307b0451b",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "nG9XSD8kK0yVOO4f",
+          "name": "Webhook basic auth1"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Webhook Authorization\n",
+        "height": 260,
+        "width": 780
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1120,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "6c3afad6-bd4b-4a6c-b95e-9d09c378bc3a",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "hello it's testing",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        -580,
+        20
+      ],
+      "id": "229c38e3-2ff7-483e-a17d-f3597fd1dc59",
+      "name": "Respond to Webhook",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "### Webhook Authorization Methods\n\nThere are 2 major types of Authorization for Webhooks:\n\n###  1️⃣ **Basic Authentication**\n\n* Credentials are passed in a base64-encoded format.\n* ⚠️ **Note:** Embedding credentials in the URL is discouraged due to security risks.\n\nHeader Example:\nAuthorization: Basic 123456789\n\n### 2️⃣ **Bearer Authorization (API Key)**\n\n* The API key (token) is **not included in the URL**, but sent in the header.\n* Common for securing API endpoints.\n\n**Example Request:**\nGET https://n8n.ai-boostbrands.com/webhook-test/login\n\nAuthorization: Bearer <API_KEY>\n\n### 3️⃣ **Header Authorization (OAuth 2.0)**\n\n* When redirecting to an OAuth 2.0 authorization server, the token is passed securely in the header.\n\nAuthorization: <access_token>\n\n\n---\n\n### 4️⃣ **JWT (JSON Web Tokens)**\n\n* Functions similarly to Bearer tokens.\n* The JWT is passed in the `Authorization` header.\n\nAuthorization: Bearer <JWT_token>\n\n\n",
+        "width": 1040,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1380,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "978ae543-9aa4-4c72-a0a0-b14836e806fe",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## TRW DAY 264",
+        "height": 300,
+        "width": 1080,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1400,
+        -100
+      ],
+      "typeVersion": 1,
+      "id": "79ee8977-bb1a-43d3-96a3-94e66de89da4",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "select": "channel",
+        "channelId": {
+          "__rl": true,
+          "value": "C094USTLP3K",
+          "mode": "list",
+          "cachedResultName": "social"
+        },
+        "text": "=Hi team, the form is submitted by {{ $json[\"What is your name?\"] }}!!\n\nHere's the detail:\nFrom:{{ $json[\"Where you are from?\"] }}\nBudget:{{ $json[\"How much is your budget?\"] }}\n",
+        "otherOptions": {
+          "includeLinkToWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.3,
+      "position": [
+        -580,
+        360
+      ],
+      "id": "c71845b9-8b85-4dcf-8350-19282d813030",
+      "name": "Slack",
+      "webhookId": "772a6308-0afc-4108-9654-1067f3532691",
+      "credentials": {
+        "slackApi": {
+          "id": "cbq8FWgbOdBSL54K",
+          "name": "Agentic Web "
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "formTitle": "Onboarding Form",
+        "formDescription": "Let's automate onboarding workflow",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "What is your name?",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Where you are from?"
+            },
+            {
+              "fieldLabel": "How much is your budget?"
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -820,
+        360
+      ],
+      "id": "ed96683b-29f6-48b1-ae72-45a8c931fc46",
+      "name": "On form submission",
+      "webhookId": "468dc25f-f664-45a8-a5dd-2022bd751f84",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "## Slack Automation\n",
+        "height": 260,
+        "width": 780
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1120,
+        280
+      ],
+      "typeVersion": 1,
+      "id": "37fd5b3b-5582-4fc5-b738-860ea96483a2",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "Notify Slack upon new onboarding form submission\n\n## Bot Registration Methods\n\n1️⃣ Access Token Method\n\nYou obtain an access token and use it directly for API operations.\n\n2️⃣ OAuth 2.0 Flow (Redirect URL + Client ID)\n\nStandard, secure method involving user authorization.\nMore secure, suited for public or multi-user applications.\n\n1️⃣ OAuth & Permissions\nRequired for connecting Slack with N8N or other automation tools.\n\n2️⃣ Event Subscriptions\nAllows your bot to respond to Slack events in real-time.\n\nExamples of events:\nNew message in a channel\nUser joins a workspace\nReactions added\n\nSteps to Enable For webhook:\n\nProvide a public, verified Webhook URL\nSlack sends event payloads to this URL\nYour bot processes and responds accordingly\n\n",
+        "height": 180,
+        "width": 1040,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1380,
+        340
+      ],
+      "typeVersion": 1,
+      "id": "143432b9-bf6d-40b4-90b2-d34f1b0ec428",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "content": "## TRW DAY 265",
+        "height": 300,
+        "width": 1080,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1400,
+        260
+      ],
+      "typeVersion": 1,
+      "id": "e643f4da-59c7-48f6-a69d-513f2e3bbc24",
+      "name": "Sticky Note6"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        -540
+      ],
+      "id": "6cc91c37-666e-4fc1-9087-77413ae086bf",
+      "name": "When clicking ‘Execute workflow’",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -880,
+        720
+      ],
+      "id": "f9927490-b575-4de8-a85d-8258708dbabd",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "EB4ev758fLtEhIlH",
+          "name": "Black Flag"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "html": "={{ $json.snippet }} and it's this",
+        "destinationKey": "=Markdown",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        -680,
+        720
+      ],
+      "id": "2e732ab8-62f6-451c-8f89-9829320f4017",
+      "name": "Markdown"
+    },
+    {
+      "parameters": {
+        "content": "## Automated Email to Airtable\n",
+        "height": 260,
+        "width": 780
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1120,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "b0fae32f-4c51-4acc-b7d7-d203877964de",
+      "name": "Sticky Note7"
+    },
+    {
+      "parameters": {
+        "content": "## Email to Airtable Automation\nAutomate a workflow that:\n\n✅ Converts **rich text content** from incoming emails to **Markdown**\n✅ Saves the converted Markdown into an **Airtable database**\n\n\n\n\nGmail:\nThe email used for this is flag13302@gmail.com\n\n\nAirtable:\nThe account is used for Airtable is usman.ak508@gmail.com\n\n\n1️⃣ **Trigger: Gmail New Email**\n* Set trigger to:\nEmail received\n\n\n\n2️⃣ **Extract Rich Text Content**\n\nemail body (HTML or rich text)\n\n3️⃣ **Convert to Markdown**\n\n* Use a parser (available in most automation platforms or custom code) to convert:\n\n* Insert new record:\n\nEmail Subject → Airtable Field\nSender Email → Airtable Field\nMarkdown Content → Airtable Long Text Field\n",
+        "height": 180,
+        "width": 1040,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1380,
+        700
+      ],
+      "typeVersion": 1,
+      "id": "2f4946a0-1d11-4ed6-9e46-e109013c1811",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "content": "## TRW DAY 266",
+        "height": 300,
+        "width": 1080,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1400,
+        620
+      ],
+      "typeVersion": 1,
+      "id": "74d953ae-b388-4d86-9e33-f1a48d27078f",
+      "name": "Sticky Note9"
+    },
+    {
+      "parameters": {
+        "content": "## Automated Email to Airtable\n",
+        "height": 300,
+        "width": 1400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        360,
+        -80
+      ],
+      "typeVersion": 1,
+      "id": "68ac0730-3aac-4aae-bdf5-821eb98dce15",
+      "name": "Sticky Note10"
+    },
+    {
+      "parameters": {
+        "content": "## Transcribe Google Drive Audio to Airtable\nChallenge:\n### Design an n8n workflow to:\n\n✅ Automatically fetch audio files from Google Drive\n✅ Transcribe them using AssemblyAI\n✅ Save the transcription result into Airtable",
+        "height": 220,
+        "width": 1840,
+        "color": 3
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -80,
+        -20
+      ],
+      "typeVersion": 1,
+      "id": "bc19291c-d8e4-406f-8344-1e4496ac0713",
+      "name": "Sticky Note11"
+    },
+    {
+      "parameters": {
+        "content": "## TRW DAY 267",
+        "height": 340,
+        "width": 1880,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -100,
+        -100
+      ],
+      "typeVersion": 1,
+      "id": "f0e40972-c9b4-4f8a-8085-65542b906f38",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFile",
+        "fileToWatch": {
+          "__rl": true,
+          "value": "15u7WetgfCwnaDELcEAbAGNsgoNOX4YSNN8PXCkFQY04",
+          "mode": "list",
+          "cachedResultName": " Market Research Template (TRW) (1)",
+          "cachedResultUrl": "https://docs.google.com/document/d/15u7WetgfCwnaDELcEAbAGNsgoNOX4YSNN8PXCkFQY04/edit?usp=drivesdk"
+        }
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        400,
+        40
+      ],
+      "id": "948fd24a-a68c-4c5a-9ef6-8cd8dba067ba",
+      "name": "Google Drive Trigger",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "cmyrJRVB0OAIxc6K",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1240,
+        40
+      ],
+      "id": "1934a548-89fd-4eeb-9c0d-4ce8a62a3dd6",
+      "name": "Wait",
+      "webhookId": "35fc31a0-79f3-4cb1-8ee9-1fc329d24dae"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        600,
+        40
+      ],
+      "id": "30dc54d5-4d95-43eb-9e7e-1b7e960488d2",
+      "name": "Download File",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "cmyrJRVB0OAIxc6K",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/upload",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/octet-stream"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        40
+      ],
+      "id": "6bae4ac7-c73f-4956-99af-682123121560",
+      "name": "Upload file",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "lePRpgwInuigDV39",
+          "name": "Assembly.ai Usman API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "={{ $json.upload_url }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1040,
+        40
+      ],
+      "id": "284dcbdc-d78b-401a-9f4f-902f94e719fd",
+      "name": "Transcript request",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "lePRpgwInuigDV39",
+          "name": "Assembly.ai Usman API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $json.id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        40
+      ],
+      "id": "04a27cba-11b0-4a4c-bd63-12e570a97e03",
+      "name": "Get Transcript",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "lePRpgwInuigDV39",
+          "name": "Assembly.ai Usman API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appPW8UdaSkiGdUZG",
+          "mode": "list",
+          "cachedResultName": "n8n",
+          "cachedResultUrl": "https://airtable.com/appPW8UdaSkiGdUZG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tbl9I8NKoA4QFdben",
+          "mode": "list",
+          "cachedResultName": "TRW 7-5-25",
+          "cachedResultUrl": "https://airtable.com/appPW8UdaSkiGdUZG/tbl9I8NKoA4QFdben"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Audio Transcribes": "={{ $json.text }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Audio Transcribes",
+              "displayName": "Audio Transcribes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Attachment Summary",
+              "displayName": "Attachment Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Assignee",
+              "displayName": "Assignee",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Attachments",
+              "displayName": "Attachments",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1620,
+        40
+      ],
+      "id": "a75c4395-594b-4c3e-9aa9-52851cf32dc9",
+      "name": "Trancsript Table",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ofLQb52WOgPV5qTn",
+          "name": "Airtable BLACK FLAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appPW8UdaSkiGdUZG",
+          "mode": "list",
+          "cachedResultName": "n8n",
+          "cachedResultUrl": "https://airtable.com/appPW8UdaSkiGdUZG"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblkYG0S30ZtcNb9N",
+          "mode": "list",
+          "cachedResultName": "Email Data",
+          "cachedResultUrl": "https://airtable.com/appPW8UdaSkiGdUZG/tblkYG0S30ZtcNb9N"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email from": "={{ $json.From }}",
+            "Subject": "={{ $json.Subject }}",
+            "Email Detail": "={{ $json.snippet }}",
+            "Markdown": "={{ $json.Markdown }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Email from",
+              "displayName": "Email from",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Subject",
+              "displayName": "Subject",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email Detail",
+              "displayName": "Email Detail",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Markdown",
+              "displayName": "Markdown",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        -500,
+        720
+      ],
+      "id": "5ad3b7ed-93af-46b2-8d18-54e69cc4c23e",
+      "name": "Email Markdown Table",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ofLQb52WOgPV5qTn",
+          "name": "Airtable BLACK FLAG"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Google Drive Trigger": [
+      {
+        "json": {
+          "parents": [
+            "1WPMflOBSW4zevzzGP7PCtXmUq23AvE-L"
+          ],
+          "lastModifyingUser": {
+            "displayName": "Black Flag",
+            "kind": "drive#user",
+            "me": true,
+            "permissionId": "14937948589996078067",
+            "emailAddress": "flag13302@gmail.com",
+            "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocL4w_UTBj_6GOoqAPa3vjqCtkV9454FC8VEPQV4bn9kPI-bUA=s64"
+          },
+          "owners": [
+            {
+              "displayName": "Black Flag",
+              "kind": "drive#user",
+              "me": true,
+              "permissionId": "14937948589996078067",
+              "emailAddress": "flag13302@gmail.com",
+              "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocL4w_UTBj_6GOoqAPa3vjqCtkV9454FC8VEPQV4bn9kPI-bUA=s64"
+            }
+          ],
+          "permissions": [
+            {
+              "kind": "drive#permission",
+              "id": "14937948589996078067",
+              "type": "user",
+              "emailAddress": "flag13302@gmail.com",
+              "role": "owner",
+              "displayName": "Black Flag",
+              "photoLink": "https://lh3.googleusercontent.com/a/ACg8ocL4w_UTBj_6GOoqAPa3vjqCtkV9454FC8VEPQV4bn9kPI-bUA=s64",
+              "deleted": false,
+              "pendingOwner": false
+            }
+          ],
+          "spaces": [
+            "drive"
+          ],
+          "capabilities": {
+            "canAcceptOwnership": false,
+            "canAddChildren": false,
+            "canAddMyDriveParent": false,
+            "canChangeCopyRequiresWriterPermission": true,
+            "canChangeItemDownloadRestriction": true,
+            "canChangeSecurityUpdateEnabled": false,
+            "canChangeViewersCanCopyContent": true,
+            "canComment": true,
+            "canCopy": true,
+            "canDelete": true,
+            "canDisableInheritedPermissions": false,
+            "canDownload": true,
+            "canEdit": true,
+            "canEnableInheritedPermissions": true,
+            "canListChildren": false,
+            "canModifyContent": true,
+            "canModifyContentRestriction": true,
+            "canModifyEditorContentRestriction": true,
+            "canModifyOwnerContentRestriction": true,
+            "canModifyLabels": false,
+            "canMoveChildrenWithinDrive": false,
+            "canMoveItemIntoTeamDrive": true,
+            "canMoveItemOutOfDrive": true,
+            "canMoveItemWithinDrive": true,
+            "canReadLabels": false,
+            "canReadRevisions": true,
+            "canRemoveChildren": false,
+            "canRemoveContentRestriction": false,
+            "canRemoveMyDriveParent": true,
+            "canRename": true,
+            "canShare": true,
+            "canTrash": true,
+            "canUntrash": true
+          },
+          "permissionIds": [
+            "14937948589996078067"
+          ],
+          "linkShareMetadata": {
+            "securityUpdateEligible": false,
+            "securityUpdateEnabled": true
+          },
+          "downloadRestrictions": {
+            "itemDownloadRestriction": {
+              "restrictedForReaders": false,
+              "restrictedForWriters": false
+            },
+            "effectiveDownloadRestrictionWithContext": {
+              "restrictedForReaders": false,
+              "restrictedForWriters": false
+            }
+          },
+          "kind": "drive#file",
+          "id": "1nw3CmwojRSKWMHHCtbfjhbagi2_aGCUe",
+          "name": "automation_story.mp3",
+          "mimeType": "audio/mpeg",
+          "starred": false,
+          "trashed": false,
+          "explicitlyTrashed": false,
+          "version": "1",
+          "webContentLink": "https://drive.google.com/uc?id=1nw3CmwojRSKWMHHCtbfjhbagi2_aGCUe&export=download",
+          "webViewLink": "https://drive.google.com/file/d/1nw3CmwojRSKWMHHCtbfjhbagi2_aGCUe/view?usp=drivesdk",
+          "iconLink": "https://drive-thirdparty.googleusercontent.com/16/type/audio/mpeg",
+          "hasThumbnail": false,
+          "thumbnailVersion": "0",
+          "viewedByMe": true,
+          "viewedByMeTime": "2025-07-05T16:24:42.751Z",
+          "createdTime": "2025-07-05T16:24:42.751Z",
+          "modifiedTime": "2025-07-05T16:24:07.000Z",
+          "modifiedByMeTime": "2025-07-05T16:24:07.000Z",
+          "modifiedByMe": true,
+          "shared": false,
+          "ownedByMe": true,
+          "viewersCanCopyContent": true,
+          "copyRequiresWriterPermission": false,
+          "writersCanShare": true,
+          "originalFilename": "automation_story.mp3",
+          "fullFileExtension": "mp3",
+          "fileExtension": "mp3",
+          "md5Checksum": "9d75bf552721174199aca76b987ac0f4",
+          "sha1Checksum": "997fa9f94ae5e51d18f8bcff2d0ecb425c131ad8",
+          "sha256Checksum": "cb924e1731f911374d01339ea2aa5d0a130aa3ab58a0bcf9f05e0da0e23601e1",
+          "size": "230407",
+          "quotaBytesUsed": "230407",
+          "headRevisionId": "0B3Yyla4jp72WVFlVeUtZcTNtcnZMei9qK3JiNmFLaERQazYwPQ",
+          "isAppAuthorized": false,
+          "inheritedPermissionsDisabled": false
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        []
+      ]
+    },
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown": {
+      "main": [
+        [
+          {
+            "node": "Email Markdown Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "node": "Transcript request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcript request": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transcript": {
+      "main": [
+        [
+          {
+            "node": "Trancsript Table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Markdown Table": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "24d9845e-0aa4-4f39-9bb1-b2c76ee5baef",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0533d0c88eb406766f70134b087aee375b549e832db3d49ddb144638dbc61d60"
+  },
+  "id": "bUkTeF1w7kaUcvO4",
+  "tags": [
+    {
+      "createdAt": "2025-07-03T05:49:35.739Z",
+      "updatedAt": "2025-07-03T05:49:35.739Z",
+      "id": "kPW3JXq10QgEW4oF",
+      "name": "TRW"
+    },
+    {
+      "createdAt": "2025-07-02T19:33:50.211Z",
+      "updatedAt": "2025-07-02T19:33:50.211Z",
+      "id": "yukNBZ3lC6S7bheJ",
+      "name": "Growth Reps"
+    }
+  ]
+}
